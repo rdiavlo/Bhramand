@@ -6,7 +6,7 @@ def execute_query_and_get_results(query_list):
     result = ""
 
     try:
-        conn = sqlite3.connect('sql.db')
+        conn = sqlite3.connect('temp_holder/sql.db')
         cursor = conn.cursor()
         print('DB Initializing...')
 

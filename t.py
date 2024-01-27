@@ -4,7 +4,7 @@ print("hoohah")
 
 """
 
-Set config attributes:
+Set config.ini attributes:
     INGESTION_MODE --> full load/incremental
     INGESTION_FLOW --> BQ2TD
     ENV --> dev/stg/prd

@@ -4,8 +4,8 @@ from configparser import ConfigParser
 
 # Get the configparser object
 config_object = ConfigParser()
-# Read the contents of the `config.ini` file:
-config_object.read('config.ini')
+# Read the contents of the `config.ini.ini` file:
+config_object.read('config.ini.ini')
 
 
 """
@@ -18,7 +18,7 @@ Dataframes to hold data
 
 """
 import oracledb
-# from assets import config
+# from assets import config.ini
 from datetime import datetime
 import tkinter as tk
 import threading

@@ -1,0 +1,34 @@
+
+{"RECIPE LIST":
+[
+{
+"recipe": "omelette",
+"type": "independent",
+"ingredients": ["eggs", "onion", "garlic"],
+"prep time": "None",
+"process": [
+"Step 1: Chop onions and green chilli, Mix with egg in a bowl ,add pepper and salt",
+"Step 2: Pour oil on pan and fry the batter",
+"Step 3: Flip and after both sides are done top with filings"
+],
+"insights": ["None"],
+"metadata": ["None"]
+},
+
+{
+"recipe":"khichdi",
+"type": "independent",
+"ingredients": ["moong dal", "oats", "potato", "onion"],
+"prep time": "None",
+"process": [
+"Step 1: Chop onions and green chilli, Mix with egg in a bowl ,add pepper and salt",
+"Step 2: Pour oil on pan and fry the batter",
+"Step 3: Flip and after both sides are done top with filings"
+],
+"insights": ["None"],
+"metadata": ["None"]
+}
+],
+"Recipe cycle": ["Breakfast", "lunch", "dinner"],
+
+}

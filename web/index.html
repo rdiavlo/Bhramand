@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home page</title>
+
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+<h1>Contents</h1>
+
+<h2><a href="./captains_logs.html">Captain's Logs</a></h2>
+
+<h2>Projects</h2>
+<h2>Assets</h2>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor nunc ac rhoncus hendrerit. Quisque tincidunt mi vel dictum mollis. Nam in lectus est. Vestibulum mollis, nibh eget pretium convallis, lectus metus volutpat sem, vitae tempus lorem magna nec magna. Pellentesque interdum lectus purus, et placerat mauris facilisis non. Nullam ut leo pretium lorem tincidunt porta. Vestibulum sed elementum eros.
+
+Sed rutrum mattis nibh sit amet dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus maximus justo nec efficitur feugiat. Nulla dapibus ex sit amet nunc egestas tempor. Donec magna turpis, blandit dignissim neque a, bibendum finibus lectus. Phasellus pulvinar sapien neque, at ultrices tortor sodales sit amet. Phasellus in enim a nunc tristique vestibulum non nec arcu. Aliquam eget turpis urna. Vivamus pulvinar nibh vel varius iaculis. Morbi venenatis metus eleifend orci condimentum molestie. Duis tortor ex, venenatis sed blandit ac, varius eget lacus. Nulla faucibus, dui sit amet malesuada ultrices, purus tellus bibendum risus, a sodales lectus nisi sed sapien. Curabitur at nulla auctor, gravida neque sed, convallis eros. Etiam velit ligula, porta id purus vel, luctus congue lorem. Ut ultricies venenatis augue in luctus. Aliquam in mauris viverra, feugiat ipsum et, tincidunt nibh.
+
+Aliquam pulvinar, massa vitae semper facilisis, turpis enim efficitur dolor, sed porta justo metus eu odio. Cras dapibus condimentum luctus. Vivamus et porttitor libero. Phasellus et nunc nunc. Nam dapibus velit enim, quis vulputate ex laoreet nec. Integer vel purus lectus. Aenean finibus gravida justo vel sollicitudin. Sed volutpat enim ac viverra finibus. Duis placerat nibh non orci mattis suscipit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+Nam quis arcu vitae nisi dictum iaculis non quis velit. Nullam congue eros eu turpis rhoncus sollicitudin. Vivamus elementum vestibulum ipsum ac suscipit. Sed eu dolor in urna rhoncus elementum. Proin interdum odio lacus, sed suscipit nibh maximus in. Aenean tristique convallis lacinia. Donec pulvinar tristique odio non dictum. Quisque quis lacinia ante. Ut feugiat consectetur neque ac venenatis.
+
+Nullam vel ligula eros. Donec bibendum magna eget ex mollis condimentum. Sed ac ultricies elit. Aliquam lobortis tempor massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec sodales sem a augue auctor, in maximus nisi interdum. Aliquam eu orci dictum, pharetra justo id, pulvinar veli</p>
+
+<h1>My First JavaScript</h1>
+
+<button type="button"
+onclick="document.getElementById('1').innerHTML = Date()">
+Click me to display Date and Time.</button>
+
+<p id="1"></p>
+
+
+
+
+<!-- LEARN FORMS -->
+<h2>HTML Forms</h2>
+
+<form action="" method="GET">
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" value="1"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" value="2"><br><br>
+  <input type="submit" value="Submit" onClick="testResults(this.form)">
+</form>
+
+<p>If you click the "Submit" button, the form-data will be sent to a function called "testResults(this.form)".</p>
+<!-- END OF LEARN FORMS -->
+
+
+
+<script>
+function testResults (form) {
+    function getFormData (form1) {
+        var inputValue = form1.inputbox.value;
+        return inputValue;
+        }
+
+    document.getElementById("2").innerHTML = getFormData(form);
+}
+</script>
+
+<p id="2"></p>
+
+
+
+<p id="demo"></p>
+
+<script>
+let x = myFunction(4, 3);
+document.getElementById("demo").innerHTML = x;
+
+function myFunction(a, b) {
+  return a * b;
+}
+</script>
+
+
+
+<!--<script>-->
+<!--if (new Date().getHours() < 18) {-->
+<!--  document.getElementById("demo").innerHTML = "Access allowed!";-->
+<!--}-->
+<!--</script>-->
+
+
+
+</body>
+</html>

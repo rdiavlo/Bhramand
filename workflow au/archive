@@ -1,0 +1,5 @@
+    # oracledb.init_oracle_client(config_dir='')
+    # con = oracledb.connect(user=p_username, password=p_password, dsn=p_dns, config_dir='')
+
+    # print("Database version:", con.version)
+    # print("Check if connection is healthy...", con.is_healthy())

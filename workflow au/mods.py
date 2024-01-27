@@ -1,5 +1,11 @@
 # This has ODSPROD connector
+from configparser import ConfigParser
 
+
+# Get the configparser object
+config_object = ConfigParser()
+# Read the contents of the `config.ini` file:
+config_object.read('config.ini')
 
 
 """
@@ -63,12 +69,13 @@ monitoring_list = ["Mon: MT_RSTD_GL_REV_MEASURE"]
 
 def get_connection_engine():
     print("Connecting to oracle...")
-    p_username = 'EJCRO'
-    p_dns = 'ODSPROD.CISCO.COM'
-    p_port = 1841
-    p_host = "scan-prd-3066.cisco.com"
-    encoding = 'UTF-8'
-    p_password = 'Ejcro_32017'
+
+    # Access values from the configuration file:
+    p_host = config_object.get('Database', 'host')
+    p_dns = config_object.get('Database', 'dns')
+    p_port = config_object.get('Database', 'port')
+    p_username = config_object.get('Database', 'username')
+    p_password = config_object.get('Database', 'password')
 
     # dialect + driver: // username: password @ host:port / database
     engine = create_engine(f"oracle+oracledb://{p_username}:{p_password}@{p_host}:{p_port}/?service_name={p_dns}",
@@ -113,7 +120,7 @@ def execute_oracle_queries(conn_engine, query):
             print("\t", df)
             return_val = df
 
-    print(f"{curr_time} - Query completed!\n", query)
+    print(f"{curr_time} - Query completed!\n")
     return return_val
 
 

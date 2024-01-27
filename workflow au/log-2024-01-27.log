@@ -1,0 +1,57 @@
+2024-01-27-17:41:37 - 
+The ingestion params are: 
+Flow: forward
+Source: TERADATA
+Environment: PRD 
+Count of tables: 6 
+ Re-Ingestion: False
+2024-01-27-17:41:37 - ERROR: The format of raw input should be in the form src_db	src_schema	src_table	tgt_db	tgt_schema	_tgt_table. THIS DOES NOT MATCH!
+2024-01-27-17:41:37 - 
+This is the input provided: 
+['TDPROD\tNRTSTGDB\tWI_ORDER_LINES_EXT_NRT_CG1_BP\tgcp-edwprddata-prd-33200\tTDPROD_NRTSTGDB_STOCKPILE\tWI_ORDER_LINES_EXT_NRT_CG1_BP', 'TDPROD\tNRTSTGDB\tWI_ORDER_LINES_EXT_NRT_CG1_OLP\tgcp-edwprddata-prd-33200\tTDPROD_NRTSTGDB_STOCKPILE\tWI_ORDER_LINES_EXT_NRT_CG1_OLP', 'TDPROD\tNRTSTGDB\tWI_ORDER_LINES_EXT_NRT_CG1_PBL\tgcp-edwprddata-prd-33200\tTDPROD_NRTSTGDB_STOCKPILE\tWI_ORDER_LINES_EXT_NRT_CG1_PBL', 'TDPROD\tNRTSTGDB\tWI_ORDER_LINES_EXT_NRT_CG1_SMC\tgcp-edwprddata-prd-33200\tTDPROD_NRTSTGDB_STOCKPILE\tWI_ORDER_LINES_EXT_NRT_CG1_SMC', 'TDPROD\tNRTSTGDB\tWI_ORDER_LINES_EXT_NRT_CG1_CSD\tgcp-edwprddata-prd-33200\tTDPROD_NRTSTGDB_STOCKPILE\tWI_ORDER_LINES_EXT_NRT_CG1_CSD', 'TDPROD\tEXCEPDB\tEX_WIPS_SER_POS_DTLS_MULTI_PUB\tgcp-edwprddata-prd-33200\tTDPROD_EXCEPDB_STOCKPILE\tEX_WIPS_SER_POS_DTLS_MULTI_PUB']
+This is the cleaned input: 
+[['TDPROD', 'NRTSTGDB', 'WI_ORDER_LINES_EXT_NRT_CG1_BP', 'gcp-edwprddata-prd-33200', 'TDPROD_NRTSTGDB_STOCKPILE', 'WI_ORDER_LINES_EXT_NRT_CG1_BP'], ['TDPROD', 'NRTSTGDB', 'WI_ORDER_LINES_EXT_NRT_CG1_OLP', 'gcp-edwprddata-prd-33200', 'TDPROD_NRTSTGDB_STOCKPILE', 'WI_ORDER_LINES_EXT_NRT_CG1_OLP'], ['TDPROD', 'NRTSTGDB', 'WI_ORDER_LINES_EXT_NRT_CG1_PBL', 'gcp-edwprddata-prd-33200', 'TDPROD_NRTSTGDB_STOCKPILE', 'WI_ORDER_LINES_EXT_NRT_CG1_PBL'], ['TDPROD', 'NRTSTGDB', 'WI_ORDER_LINES_EXT_NRT_CG1_SMC', 'gcp-edwprddata-prd-33200', 'TDPROD_NRTSTGDB_STOCKPILE', 'WI_ORDER_LINES_EXT_NRT_CG1_SMC'], ['TDPROD', 'NRTSTGDB', 'WI_ORDER_LINES_EXT_NRT_CG1_CSD', 'gcp-edwprddata-prd-33200', 'TDPROD_NRTSTGDB_STOCKPILE', 'WI_ORDER_LINES_EXT_NRT_CG1_CSD'], ['TDPROD', 'EXCEPDB', 'EX_WIPS_SER_POS_DTLS_MULTI_PUB', 'gcp-edwprddata-prd-33200', 'TDPROD_EXCEPDB_STOCKPILE', 'EX_WIPS_SER_POS_DTLS_MULTI_PUB']]
+2024-01-27-17:41:37 - 
+RUN THIS: Validate that these databases are present
+
+                select *
+                from dbc.tables
+                where
+                database_name = 'NRTSTGDB' UNION ALL
+
+                select *
+                from dbc.tables
+                where
+                database_name = 'EXCEPDB' 
+
+RUN THIS: Validate that these tables are present
+
+                select *
+                from dbc.tables
+                where
+                database_name = 'NRTSTGDB' and TableName = 'WI_ORDER_LINES_EXT_NRT_CG1_BP' UNION ALL
+
+                select *
+                from dbc.tables
+                where
+                database_name = 'NRTSTGDB' and TableName = 'WI_ORDER_LINES_EXT_NRT_CG1_OLP' UNION ALL
+
+                select *
+                from dbc.tables
+                where
+                database_name = 'NRTSTGDB' and TableName = 'WI_ORDER_LINES_EXT_NRT_CG1_PBL' UNION ALL
+
+                select *
+                from dbc.tables
+                where
+                database_name = 'NRTSTGDB' and TableName = 'WI_ORDER_LINES_EXT_NRT_CG1_SMC' UNION ALL
+
+                select *
+                from dbc.tables
+                where
+                database_name = 'NRTSTGDB' and TableName = 'WI_ORDER_LINES_EXT_NRT_CG1_CSD' UNION ALL
+
+                select *
+                from dbc.tables
+                where
+                database_name = 'EXCEPDB' and TableName = 'EX_WIPS_SER_POS_DTLS_MULTI_PUB' 

@@ -1,0 +1,45 @@
+
+Game:
+1. Aerial combat -> 3d viewport
+2. Sensory immersion
+3. Physics simulation
+4.
+
+Plan:
+Phase 1:
+    Objective:
+    * I should visualize the structure moving in 3-d Space
+    * Should have preliminary movement capability in space
+
+    Implementation:
+    -- Move particle -> validate movement in space
+    -- Automate movement [Rotation & revolution]
+        -- Point to neighbour dynamics
+
+    Insights:
+
+Phase 2:
+    Objective:
+    * Game dev life cycle: Tools
+        -- Gameplay and UX phase-I draft
+    * I should visualize the structure moving in 3-d Space
+        -- Create: Use easy means to create structures [elemental structure library]
+        -- Populate: Populate structures in game world
+        -- Optimize: Optimize structure store format for algorithms
+
+        Cams:
+        -- Create cams
+        -- Create analysis viewports
+
+    * Rudimentary Gui
+
+    * Link Current game movement features with game world [Modularity]
+    * Dev features:
+        -- Git integration
+
+Features:
+    Online game server
+    Modularity -> recreate games based on sub systems
+    Documentation [Architecture, ops, insights, logs]
+    Next gen tech: Sensory ascension[emulate and enhance gameplay][VR],   
+

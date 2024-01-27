@@ -5,7 +5,7 @@ from configparser import ConfigParser
 # Get the configparser object
 config_object = ConfigParser()
 # Read the contents of the `config.ini.ini` file:
-config_object.read('config.ini.ini')
+config_object.read('config.ini')
 
 
 """

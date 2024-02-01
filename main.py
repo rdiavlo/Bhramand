@@ -1,5 +1,4 @@
-
-import database_connector
+from temp_holder import database_connector
 
 # TODO add active flag for products
 

@@ -249,10 +249,8 @@ class Object:
         self.axis_line_list = None
         self.initialize(object_params)
 
-        self.node_to_rotate_about = None
-
         self.show_polygon = True
-        self.time_constraint = {"movement": [time.time(), 0.05], "c_1": [time.time(), 1]}
+        self.time_constraint = {"movement": [time.time(), 0.05]}
         self.rotation_rate = 5
 
     def initialize(self, object_params):
@@ -264,7 +262,7 @@ class Object:
 
         # create axis system for each object
         def create_random_node_with_parent_as_center_node(position):
-            random_node = Node(position, "blue", 2, parent=center_node, object_name="randomPoint")
+            random_node = Node(position, "blue", 2, parent=center_node, object_name="axisPoint")
             return random_node
 
         node_a, node_b, node_c = create_random_node_with_parent_as_center_node([0, 0, 100]), \
@@ -384,7 +382,6 @@ class Object:
         center_node_position = self.center_node.get_your_position()
 
         if not highest_parent_object:
-
             # move rotation axis to local center
             node_a, node_b = rotation_axis.nodes[0], rotation_axis.nodes[1]
             node_a_position, node_b_position = node_a.get_your_position(), node_b.get_your_position()
@@ -400,7 +397,7 @@ class Object:
         for axis_node in axis_nodes_list:
             axis_node.rotate_yourself(angle_to_rotate_by, axis_override=True, axis=rotation_axis)
 
-        # rotate axis nodes about rotation axis
+        # rotate nodes about rotation axis
         for node_o in self.nodes:
             node_o.rotate_yourself(angle_to_rotate_by, axis_override=True, axis=rotation_axis)
 
@@ -444,9 +441,6 @@ class Object:
                 self.move_about_your_axis(axis="x_axis", direction="forward")
             elif key_pressed_dict[pygame.K_RIGHT]:
                 self.move_about_your_axis(axis="x_axis", direction="reverse")
-            # else:
-            #     for node_o in self.nodes:
-            #         node_o.rotate_yourself(self.rotation_rate, axis_override=True, axis=self.axis_line)
 
         # let each node respond to event [Ex: rotate yourself]
         for node in self.nodes:
@@ -483,6 +477,7 @@ class Plane(Object):
         else:
             center = center_position
         length = 60
+        point_list = {}
         if orientation == "XZ":
             point_list = {"a": [length // 2, 0, length // 2],
                           "b": [length // 2, 0, -length // 2],
@@ -498,7 +493,6 @@ class Plane(Object):
                           "b": [0, length // 2, -length // 2],
                           "c": [0, -length // 2, length // 2],
                           "d": [0, -length // 2, -length // 2]}
-
 
         center_node = Node(center, "white", 2, object_name=object_name)
         assumed_name_to_actual_name_mapping_dict = {"O": center_node.name}
@@ -540,8 +534,8 @@ class Plane(Object):
         point_position = node_to_project.get_your_position()
 
         # Make a vector from your orig point to the point of interest:
-        v_x, v_y, v_z = point_position[0] - origin_position[0], point_position[1] - origin_position[1], \
-                        point_position[2] - origin_position[2]
+        v_x, v_y, v_z = point_position[0] - origin_position[0], point_position[1] - origin_position[1],\
+            point_position[2] - origin_position[2]
 
         # Take the dot product of that vector with the unit normal vector n
         dist = (v_x * unit_normal_vector[0]) + (v_y * unit_normal_vector[1]) + (v_z * unit_normal_vector[2])
